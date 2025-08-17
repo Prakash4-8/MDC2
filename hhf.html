@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration & Profile Setup</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+
+    <h1>Create Your Account</h1>
+    <p>Join our platform by filling out the form below.</p>
+
+    <form action="/submit-registration" method="POST">
+        
+        <h3>Basic Information</h3>
+        
+        <label for="fullName">Full Name:</label><br>
+        <input type="text" id="fullName" name="user_name" placeholder="e.g., Alex Doe" required><br><br>
+
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="user_email" placeholder="you@example.com" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="user_password" required minlength="8"><br><br>
+
+        <h3>Profile Details</h3>
+
+        <label for="bio">Your Bio:</label><br>
+        <textarea id="bio" name="user_bio" rows="5" cols="40" placeholder="Tell us a little about yourself..."></textarea><br><br>
+        
+        <label for="country">Country:</label><br>
+        <select id="country" name="user_country">
+            <option value="">--Please choose an option--</option>
+            <option value="in">India</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="au">Australia</option>
+        </select><br><br>
+
+        <p>Choose your account type:</p>
+        <input type="radio" id="personal" name="account_type" value="personal" checked>
+        <label for="personal">Personal</label><br>
+        <input type="radio" id="business" name="account_type" value="business">
+        <label for="business">Business</label><br><br>
+
+        <h3>Preferences</h3>
+
+        <label for="themeColor">Choose your profile theme color:</label><br>
+        <input type="color" id="themeColor" name="theme_color" value="#0000ff"><br><br>
+        
+        <label for="appointment">Schedule an onboarding call:</label><br>
+        <input type="datetime-local" id="appointment" name="onboarding_time"><br><br>
+        
+        <input type="checkbox" id="newsletter" name="newsletter_signup" value="true" checked>
+        <label for="newsletter">Subscribe to our newsletter</label><br><br>
+        
+        <hr>
+
+        <button type="submit">Register Account</button>
+        <button type="reset">Clear Form</button>
+
+    </form>
+
+</body>
+</html>
