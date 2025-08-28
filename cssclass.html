@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alex Doe - Web Developer Portfolio</title>
+    <!-- External CSS file: styles.css (create this file for best practice) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Internal CSS covers key CSS concepts as per your syllabus -->
+    <style>
+        /* BODY: Background color, font, and color */
+        body {
+            background-color: #f0f8ff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #223;
+            margin: 0;
+            padding: 0;
+        }
+        /* Headings: Color, text, spacing */
+        h1, h2, h3 {
+            color: #165788;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.7em;
+            margin-top: 18px;
+        }
+        /* Profile Image */
+        .profile-img {
+            display: block;
+            margin: 20px auto 14px auto;
+            border-radius: 10px;
+            border: 3px solid #7db2e1;
+            box-shadow: 0 2px 8px #aad6fd80;
+            width: 150px;
+            background: #fff;
+        }
+        /* Box model for sections */
+        .profile-box {
+            max-width: 710px;
+            background: #fff;
+            margin: 28px auto 22px auto;
+            padding: 24px;
+            border: 2px solid #b4d1f7;
+            border-radius: 20px;
+            box-shadow: 0 3px 16px #ddeefd;
+        }
+        /* Education Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1em;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #99bdd6;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #f1f4fb;
+            color: #165788;
+        }
+        /* Skills List */
+        ul.skills {
+            list-style-type: square;
+            color: #2b6791;
+            padding-left: 24px;
+            font-size: 1.08em;
+        }
+        /* Strong, Em, Small tags for text formatting */
+        strong { color: #022f51; font-weight: bold; }
+        em { color: #285c8f; }
+        small { font-size: 0.85em; color: #888; }
+        /* Inline code formatting: Sub, Sup */
+        sub, sup { font-size: 0.92em; }
+        /* Navbar and Drop-down */
+        nav {
+            margin: 0 auto 18px auto;
+            background: #223c55;
+        }
+        .navbar { list-style: none; margin: 0; padding: 0; display: flex;}
+        .navbar li { position: relative; }
+        .navbar > li > a {
+            color: #fff; padding: 15px 24px; display: block;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .navbar li:hover > a, .dropdown li:hover > a {
+            background: #2276ad;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            background: #345e83;
+            margin: 0; padding: 0;
+            min-width: 140px;
+            z-index: 99;
+        }
+        .dropdown li a {
+            color: #eef; padding: 10px 16px;
+            display: block; text-decoration: none;
+        }
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+        /* Responsive iframe */
+        .map-container {
+            text-align: center;
+            margin-top: 16px;
+        }
+        .gmap_iframe {
+            width: 90%;
+            height: 320px;
+            border: 2px solid #bbe0ff;
+            border-radius: 8px;
+        }
+        /* Video styling */
+        .intro-video { display: block; margin: 14px auto; border-radius: 12px; }
+        /* Footer */
+        footer {
+            background: #eaf3fa;
+            text-align: center;
+            color: #888;
+            padding: 16px 0;
+            margin-top: 30px;
+            font-size: 0.95em;
+        }
+        /* CSS Comments example: 
+            Navigation bar uses flex for easy horizontal layout.
+            Drop-down menu appears on hover using display property.
+        */
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar with Drop-Down -->
+    <nav>
+        <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Portfolio ▼</a>
+                <ul class="dropdown">
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Certifications</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Resources ▼</a>
+                <ul class="dropdown">
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="profile-box">
+        <h1>Alex Doe</h1>
+        <img src="Doe.png" alt="A portrait of Alex Doe" width="150" class="profile-img">
+        <hr>
+        <h2>About Me</h2>
+        <video src="video.mp4" width="400" controls class="intro-video">
+            Your browser does not support the video tag.
+        </video>
+        <p>
+            Hello! I'm a passionate web developer based in Bhubaneswar, specializing in creating modern and responsive websites. 
+            I love turning complex problems into simple, beautiful, and intuitive designs. 
+            <strong>My goal is to build products that provide an amazing user experience.</strong> 
+            When I am not coding, I enjoy reading books on technology or exploring new cafes. 
+            I believe in the power of <em>continuous learning</em>.
+            <!-- CSS text formatting: strong, em; check color and font weight -->
+        </p>
+        <h3>Fun Facts</h3>
+        <p>
+            My favorite chemical formula is H<sub>2</sub>O.<br>
+            My favorite mathematical equation is E = mc<sup>2</sup>.<br>
+            <small>Copyright 2025, Alex Doe. All rights reserved.</small>
+        </p>
+        <hr>
+        <h2>My Skills</h2>
+        <ul class="skills">
+            <li>HTML5 &amp; CSS3</li>
+            <li>JavaScript (React, Node.js)</li>
+            <li>Database Management (SQL, MongoDB)</li>
+            <li>UI/UX Design Principles</li>
+        </ul>
+        <hr>
+        <h2>Education</h2>
+        <table>
+            <tr>
+                <th>Degree</th>
+                <th>Institution</th>
+                <th>Year</th>
+            </tr>
+            <tr>
+                <td>B.Tech in Computer Science</td>
+                <td>KIIT University, Bhubaneswar</td>
+                <td>2022</td>
+            </tr>
+            <tr>
+                <td>Higher Secondary School</td>
+                <td>DAV Public School, Bhubaneswar</td>
+                <td>2018</td>
+            </tr>
+        </table>
+        <hr>
+        <h2>Contact Me</h2>
+        <p>
+            You can reach out to me via email or connect with me on social media.<br>
+            <strong>Email:</strong> <a href="mailto:alex.doe@example.com">alex.doe@example.com</a><br>
+            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank">linkedin.com/in/alexdoe</a><br>
+            <strong>GitHub:</strong> <a href="https://github.com/" target="_blank">github.com/alexdoe</a>
+        </p>
+        <h3>My Location</h3>
+        <div class="map-container">
+            <iframe 
+                class="gmap_iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119741.72986251239!2d85.7504381502426!3d20.29112260683074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1723831614279!5m2!1sen!2sin"
+                allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </div>
+    <footer>
+        &copy; 2025 Alex Doe. All rights reserved.
+    </footer>
+</body>
+</html>
