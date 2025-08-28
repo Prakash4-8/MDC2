@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive JavaScript Learning Guide</title>
+    <style>
+        /* Basic Setup */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+        }
+        /* Layout and Containers */
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        main {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .topic-section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .topic-section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        /* Interactive Elements */
+        .interactive-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+            margin-top: 20px;
+        }
+        .explanation, .example {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+        }
+        .example {
+            background-color: #f8f9fa;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px 0;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button.warning {
+            background-color: #dc3545;
+        }
+        button.warning:hover {
+            background-color: #c82333;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            width: calc(100% - 18px); /* Account for padding */
+        }
+        .output-box {
+            background-color: #e9ecef;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin-top: 15px;
+            min-height: 40px;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap; /* Allows line breaks */
+            word-wrap: break-word;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .interactive-area {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Interactive JavaScript Learning Guide</h1>
+    </header>
+
+    <main class="container">
+        <!-- SECTION 1: INTRODUCTION -->
+        <section class="topic-section">
+            <h2>1. Introduction to JavaScript</h2>
+            <p>JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and much more. It's one of the three core technologies of the web, alongside HTML and CSS.</p>
+            <ul>
+                <li><strong>Using JavaScript in HTML:</strong> This script is placed inside a <code>&lt;script&gt;</code> tag just before the closing <code>&lt;/body&gt;</code> tag. This is a best practice that ensures all HTML content is loaded before the script runs.</li>
+                <li><strong>Comments:</strong> The JavaScript code for this page is heavily commented to explain what's happening. You'll see <code>// single-line</code> and <code>/* multi-line */</code> comments.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 2: POPUP BOXES -->
+        <section class="topic-section">
+            <h2>2. Exploring Popup Boxes</h2>
+            <div class="interactive-area">
+                <div class="explanation">
+                    <p>Popup boxes are a simple way to interact with the user. They pause script execution until the user responds.</p>
+                    <ul>
+                        <li><code>alert()</code>: Shows a message.</li>
+                        <li><code>confirm()</code>: Asks a yes/no question.</li>
+                        <li><code>prompt()</code>: Asks for user input.</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h4>Try Them Out</h4>
+                    <button id="alertBtn">Show Alert</button>
+                    <button id="confirmBtn">Show Confirm</button>
+                    <button id="promptBtn">Show Prompt</button>
+                    <div id="popupOutput" class="output-box"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: DISPLAY POSSIBILITIES -->
+        <section class="topic-section">
+            <h2>3. Display Possibilities</h2>
+            <div class="interactive-area">
+                <div class="explanation">
+                    <p>There are several ways to display data from JavaScript:</p>
+                    <ul>
+                        <li><code>innerHTML</code>: Modifies the content of an HTML element. (Used for all output boxes on this page).</li>
+                        <li><code>console.log()</code>: Writes to the browser console (Press F12). Essential for debugging.</li>
+                        <li><code>window.alert()</code>: Shows data in a popup.</li>
+                        <li><code>document.write()</code>: Writes directly to the HTML document. <strong>Warning:</strong> using it after the page loads will overwrite everything.</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h4>See Them in Action</h4>
+                    <button id="innerHTMLBtn">Use innerHTML</button>
+                    <button id="consoleLogBtn">Use console.log()</button>
+                    <button id="docWriteBtn" class="warning">Use document.write()</button>
+                    <div id="displayOutput" class="output-box">This text will change.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: VARIABLES, DATA TYPES & OPERATORS -->
+        <section class="topic-section">
+            <h2>4. Variables, Data Types & Operators</h2>
+            <div class="interactive-area">
+                <div class="explanation">
+                    <p>Variables are containers for storing data. JavaScript has several data types (String, Number, Boolean, etc.) and operators to perform actions.</p>
+                    <ul>
+                        <li><strong>Arithmetic:</strong> <code>+ - * / %</code></li>
+                        <li><strong>String:</strong> <code>+</code> (concatenation)</li>
+                        <li><strong>Logical:</strong> <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h4>Number Operations</h4>
+                    <input type="number" id="numA" placeholder="Number A" value="10">
+                    <input type="number" id="numB" placeholder="Number B" value="5">
+                    <button id="operatorsBtn">Calculate</button>
+                    <div id="operatorsOutput" class="output-box"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: CONTROL STATEMENTS -->
+        <section class="topic-section">
+            <h2>5. Control Statements (Selection)</h2>
+            <div class="interactive-area">
+                <div class="explanation">
+                    <p>Control statements allow you to execute different blocks of code based on conditions.</p>
+                    <ul>
+                        <li><code>if...else if...else</code>: Checks a series of conditions.</li>
+                        <li><code>switch</code>: Checks a variable against multiple possible values (cases).</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h4>Check Age (if/else)</h4>
+                    <input type="number" id="ageInput" placeholder="Enter an age" value="18">
+                    <button id="ifElseBtn">Check Status</button>
+                    <h4>Select a Topic (switch)</h4>
+                    <input type="text" id="topicInput" placeholder="Enter 'HTML', 'CSS', or 'JS'" value="JS">
+                    <button id="switchBtn">Get Info</button>
+                    <div id="controlOutput" class="output-box"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: LOOPS -->
+        <section class="topic-section">
+            <h2>6. Loops & Jump Statements</h2>
+            <div class="interactive-area">
+                <div class="explanation">
+                    <p>Loops execute a block of code a number of times.</p>
+                    <ul>
+                        <li><code>for</code>: The most common loop.</li>
+                        <li><code>while</code>: Loops as long as a condition is true.</li>
+                        <li><code>do...while</code>: Like `while`, but always runs at least once.</li>
+                        <li><strong>Jump Statements:</strong> <code>break</code> exits a loop, <code>continue</code> skips an iteration.</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h4>Generate a List</h4>
+                    <button id="forLoopBtn">For Loop (1 to 5)</button>
+                    <button id="whileLoopBtn">While Loop (Count down from 3)</button>
+                    <button id="jumpStmtBtn">Loop with break/continue</button>
+                    <div id="loopOutput" class="output-box"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: FUNCTIONS -->
+        <section class="topic-section">
+            <h2>7. Functions in JavaScript</h2>
+            <div class="interactive-area">
+                <div class="explanation">
+                    <p>Functions are reusable blocks of code. They help organize your program.</p>
+                    <ul>
+                        <li><strong>User-Defined:</strong> Functions you create.</li>
+                        <li><strong>Invoking:</strong> Calling a function to run it.</li>
+                        <li><strong>Scope:</strong> Where variables are accessible. <strong>Global</strong> variables are defined outside functions; <strong>Local</strong> variables are defined inside them.</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <h4>Calculate Area (User-Defined Function)</h4>
+                    <input type="number" id="widthInput" placeholder="Width" value="10">
+                    <input type="number" id="heightInput" placeholder="Height" value="5">
+                    <button id="functionBtn">Calculate Area</button>
+                    <button id="scopeBtn">Check Scope (in Console)</button>
+                    <div id="functionOutput" class="output-box"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =================================================================== -->
+    <!-- UNOBTRUSIVE JAVASCRIPT STARTS HERE                                  -->
+    <!-- All JS is placed in one location, without modifying the HTML above. -->
+    <!-- =================================================================== -->
+    <script>
+        /*
+            This script waits for the entire HTML document to load before running.
+            This is a crucial best practice to prevent errors from scripts trying to
+            access HTML elements that haven't been created yet.
+        */
+        window.addEventListener('load', function() {
+
+            // --- GLOBAL VARIABLE (SCOPE DEMO) ---
+            const globalVar = "I am a global variable, accessible everywhere in this script.";
+
+            // --- HELPER FUNCTION to get element by ID ---
+            // A simple function to make our code cleaner.
+            const getEl = (id) => document.getElementById(id);
+
+            // --- SECTION 2: POPUP BOXES ---
+            const popupOutput = getEl('popupOutput');
+            getEl('alertBtn').addEventListener('click', function() {
+                alert("This is a simple alert box!");
+                popupOutput.innerHTML = "You just saw an alert box.";
+            });
+            getEl('confirmBtn').addEventListener('click', function() {
+                const userChoice = confirm("Do you want to proceed?");
+                popupOutput.innerHTML = `You clicked ${userChoice ? 'OK (true)' : 'Cancel (false)'}.`;
+            });
+            getEl('promptBtn').addEventListener('click', function() {
+                const userInput = prompt("Please enter your name:", "Hero");
+                if (userInput !== null) {
+                    popupOutput.innerHTML = `Hello, ${userInput}!`;
+                } else {
+                    popupOutput.innerHTML = "You cancelled the prompt.";
+                }
+            });
+
+            // --- SECTION 3: DISPLAY POSSIBILITIES ---
+            const displayOutput = getEl('displayOutput');
+            getEl('innerHTMLBtn').addEventListener('click', function() {
+                displayOutput.innerHTML = `The time is now:<br>${new Date()}`;
+            });
+            getEl('consoleLogBtn').addEventListener('click', function() {
+                console.log("This message was sent by console.log() at", new Date());
+                console.log({ name: "Alex", skill: "JavaScript", level: "Beginner" });
+                displayOutput.innerHTML = "Check the browser console (F12) for a message and an object!";
+            });
+            getEl('docWriteBtn').addEventListener('click', function() {
+                document.write("<h1>The page was overwritten!</h1><p>This is why document.write() is rarely used.</p>");
+            });
+
+            // --- SECTION 4: VARIABLES, DATA TYPES & OPERATORS ---
+            getEl('operatorsBtn').addEventListener('click', function() {
+                const numA = parseFloat(getEl('numA').value);
+                const numB = parseFloat(getEl('numB').value);
+                
+                // Check if inputs are valid numbers
+                if (isNaN(numA) || isNaN(numB)) {
+                    getEl('operatorsOutput').innerHTML = "Please enter valid numbers.";
+                    return;
+                }
+
+                const sum = numA + numB; // Arithmetic
+                const difference = numA - numB;
+                const product = numA * numB;
+                const quotient = numA / numB;
+
+                let result = `Arithmetic:\n`;
+                result += `${numA} + ${numB} = ${sum}\n`;
+                result += `${numA} - ${numB} = ${difference}\n`;
+                result += `${numA} * ${numB} = ${product}\n`;
+                result += `${numA} / ${numB} = ${quotient.toFixed(2)}\n\n`;
+
+                result += `String Concatenation:\n'${numA}' + '${numB}' = '${String(numA) + String(numB)}'\n\n`;
+                
+                result += `Logical (is A > 0 AND B > 0?):\n`;
+                const isPositive = numA > 0 && numB > 0; // Logical
+                result += `${isPositive}`;
+                
+                getEl('operatorsOutput').innerHTML = result;
+            });
+
+            // --- SECTION 5: CONTROL STATEMENTS ---
+            const controlOutput = getEl('controlOutput');
+            getEl('ifElseBtn').addEventListener('click', function() {
+                const age = parseInt(getEl('ageInput').value);
+                let status;
+                if (age < 13) {
+                    status = "Child";
+                } else if (age >= 13 && age <= 19) {
+                    status = "Teenager";
+                } else {
+                    status = "Adult";
+                }
+                controlOutput.innerHTML = `An age of ${age} is considered: ${status}`;
+            });
+            getEl('switchBtn').addEventListener('click', function() {
+                const topic = getEl('topicInput').value.toLowerCase();
+                let info;
+                switch (topic) {
+                    case 'html':
+                        info = "HTML provides the structure of a webpage.";
+                        break;
+                    case 'css':
+                        info = "CSS handles the styling and presentation.";
+                        break;
+                    case 'js':
+                    case 'javascript':
+                        info = "JavaScript provides interactivity and logic.";
+                        break;
+                    default:
+                        info = "That's a great topic to learn about!";
+                }
+                controlOutput.innerHTML = info;
+            });
+
+            // --- SECTION 6: LOOPS & JUMP STATEMENTS ---
+            const loopOutput = getEl('loopOutput');
+            getEl('forLoopBtn').addEventListener('click', function() {
+                let result = "For Loop:\n";
+                for (let i = 1; i <= 5; i++) {
+                    result += `Iteration ${i}\n`;
+                }
+                loopOutput.innerHTML = result;
+            });
+            getEl('whileLoopBtn').addEventListener('click', function() {
+                let result = "While Loop:\n";
+                let counter = 3;
+                while (counter > 0) {
+                    result += `T-minus ${counter}...\n`;
+                    counter--;
+                }
+                result += "Blast off!";
+                loopOutput.innerHTML = result;
+            });
+            getEl('jumpStmtBtn').addEventListener('click', function() {
+                let result = "Loop from 1 to 10:\n";
+                for (let i = 1; i <= 10; i++) {
+                    if (i === 3) {
+                        result += "Skipping 3 (continue)\n";
+                        continue;
+                    }
+                    if (i === 8) {
+                        result += "Found 8, stopping (break)";
+                        break;
+                    }
+                    result += `Processing ${i}\n`;
+                }
+                loopOutput.innerHTML = result;
+            });
+
+            // --- SECTION 7: FUNCTIONS ---
+            // This is a user-defined function that takes parameters.
+            function calculateRectangleArea(width, height) {
+                // This is a local variable, only available inside this function.
+                const localResult = width * height;
+                return localResult;
+            }
+
+            getEl('functionBtn').addEventListener('click', function() {
+                const width = parseFloat(getEl('widthInput').value);
+                const height = parseFloat(getEl('heightInput').value);
+                // Invoking our user-defined function
+                const area = calculateRectangleArea(width, height);
+                getEl('functionOutput').innerHTML = `The area is ${area}.`;
+            });
+
+            getEl('scopeBtn').addEventListener('click', function() {
+                const localVar = "I am a local variable, inside the event listener.";
+                console.clear(); // Clear console for clean output
+                console.log("--- SCOPE DEMO ---");
+                console.log("1. " + globalVar); // Accessing global variable
+                console.log("2. " + localVar); // Accessing local variable
+                // This would cause an error:
+                // console.log(localResult); // localResult is only in calculateRectangleArea()
+                getEl('functionOutput').innerHTML = "Scope information has been logged to the console (F12).";
+            });
+
+        });
+    </script>
+</body>
+</html>
